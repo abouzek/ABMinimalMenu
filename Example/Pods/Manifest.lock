@@ -1,0 +1,14 @@
+PODS:
+  - ABMinimalMenu (0.4.0)
+
+DEPENDENCIES:
+  - ABMinimalMenu (from `../`)
+
+EXTERNAL SOURCES:
+  ABMinimalMenu:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ABMinimalMenu: b781e4ad9028829dd475c9b4cc11304100f96b50
+
+COCOAPODS: 0.35.0
