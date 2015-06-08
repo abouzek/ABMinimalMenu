@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ABMinimalMenu"
-  s.version          = "0.4.0"
+  s.version          = "0.5.0"
   s.summary          = "A simple menu with easily customizable animations and an easy to use interface."
   s.description      = "A simple menu with easily customizable animations and an easy to use interface. ABMinimalMenu provides a simple form of menu navigation which can be tailored to many use cases."
   s.homepage         = "https://github.com/abouzek/ABMinimalMenu"

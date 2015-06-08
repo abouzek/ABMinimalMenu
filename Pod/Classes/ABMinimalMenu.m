@@ -76,10 +76,15 @@ CGFloat const MENU_DEFAULT_ANIMATION_DELAY = 0.05;
 -(void)setOpen:(BOOL)open {
     if (open) {
         [self addItems];
-        [self.delegate minimalMenuWillOpen:self];
+        
+        if ([self.delegate respondsToSelector:@selector(minimalMenuWillOpen:)]) {
+            [self.delegate minimalMenuWillOpen:self];
+        }
     }
     else {
-        [self.delegate minimalMenuWillClose:self];
+        if ([self.delegate respondsToSelector:@selector(minimalMenuWillClose:)]) {
+            [self.delegate minimalMenuWillClose:self];
+        }
     }
     
     _open = open;
@@ -121,7 +126,10 @@ CGFloat const MENU_DEFAULT_ANIMATION_DELAY = 0.05;
     if (index == -1) {
         [self.mainItem rotate];
         
-        [self.delegate minimalMenuDidOpen:self];
+        if ([self.delegate respondsToSelector:@selector(minimalMenuDidOpen:)]) {
+            [self.delegate minimalMenuDidOpen:self];
+        }
+        
         self.isAnimating = NO;
         return;
     }
@@ -162,7 +170,11 @@ CGFloat const MENU_DEFAULT_ANIMATION_DELAY = 0.05;
         [self.mainItem rotate];
 
         [self clearItemSubviews];
-        [self.delegate minimalMenuDidClose:self];
+        
+        if ([self.delegate respondsToSelector:@selector(minimalMenuDidClose:)]) {
+            [self.delegate minimalMenuDidClose:self];
+        }
+        
         self.isAnimating = NO;
         
         return;
@@ -232,7 +244,9 @@ CGFloat const MENU_DEFAULT_ANIMATION_DELAY = 0.05;
     
     self.open = NO;
     
-    [self.delegate minimalMenu:self didSelectItemAtIndex:[self indexForItem:item]];
+    if ([self.delegate respondsToSelector:@selector(minimalMenu:didSelectItemAtIndex:)]) {
+        [self.delegate minimalMenu:self didSelectItemAtIndex:[self indexForItem:item]];
+    }
 }
 
 
